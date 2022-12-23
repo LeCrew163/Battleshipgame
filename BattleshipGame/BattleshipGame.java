@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.io.*;
+
 public class BattleshipGame {
     int numOfShips = 3;
     int numOfGuesses = 0;
@@ -36,7 +37,7 @@ public class BattleshipGame {
 //        }
     }
 
-    void checkNotEqualShipLocation(ArrayList<Battleship> ships) { // Verbesserung: 1x array aus 3x machen und nach gleichen Elementen überprüfen
+    private void checkNotEqualShipLocation(ArrayList<Battleship> ships) { // Verbesserung: 1x array aus 3x machen und nach gleichen Elementen überprüfen
         for (int i = 0; i < numOfShips - 1; i++) {
             for (int a = i + 1; a < numOfShips; a++) {
                 ArrayList<String> shipLocation = ships.get(i).getLocationCells();
@@ -64,7 +65,7 @@ public class BattleshipGame {
     private void checkUserGuess(String userGuess) {
         numOfGuesses ++;
         String result = "";
-        for (Battleship ship : new ArrayList<Battleship> (ships)) {
+        for (Battleship ship : new ArrayList<> (ships)) {
             result = ship.checkYourself(userGuess);
             if (result.equals("kill")) {
                 result = "kill";
